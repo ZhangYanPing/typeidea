@@ -15,6 +15,9 @@ class Category(models.Model):
     is_nav = models.BooleanField(default=False, verbose_name="是否为导航")
     owner = models.ForeignKey(User, verbose_name="作者", on_delete=models.SET_NULL, null=True)
 
+    def __str__(self):
+        return self.name
+
     class Meta:
         verbose_name = verbose_name_plural = '分类'
 
@@ -30,6 +33,9 @@ class Tag(models.Model):
     status = models.PositiveIntegerField(default=STATUS_NORMAL, choices=STATUS_ITEMS, verbose_name="状态")
     owner = models.ForeignKey(User, verbose_name="作者", on_delete=models.SET_NULL, null=True)
     created_time = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
+
+    def __str__(self):
+        return self.name
 
     class Meta:
         verbose_name = verbose_name_plural = '标签'
@@ -52,6 +58,9 @@ class Post(models.Model):
     tag = models.ManyToManyField(Tag, verbose_name="标签")
     owner = models.ForeignKey(User, verbose_name="作者", on_delete=models.SET_NULL, null=True)
     created_time = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
+
+    def __str__(self):
+        return self.title
 
     class Meta:
         verbose_name = verbose_name_plural = "文章"

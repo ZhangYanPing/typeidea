@@ -13,5 +13,6 @@ class LinkAdmin(BaseOwnerAdmin):
 
 @admin.register(SideBar, site=custom_site)
 class SiderBarAdmin(BaseOwnerAdmin):
+    print('side bar admin')
     list_display = ('title', 'display_type', 'content', 'created_time')
     fields = ('title', 'display_type', 'content')

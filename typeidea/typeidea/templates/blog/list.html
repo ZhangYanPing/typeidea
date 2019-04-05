@@ -1,3 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>typeidea 博客系统</title>
+</head>
+<body>
+<div>
+    {% for cate in navs %}
+    <a href="/category/{{ cate.id }}"> {{ cate.name }}</a>
+    {% endfor %}
+</div>
+{% if tag %}
+标签页: {{ tag.name }}
+{% endif %}
+
+{% if category %}
+分类页：{{ category.name }}
+{% endif %}
+<hr/>
 <ul>
     {% for post in post_list %}
     <li>
@@ -10,4 +30,11 @@
     </li>
     {% endfor %}
 </ul>
-
+<hr/>
+<div>
+    {% for cate in categories %}
+    <a href="/category/{{ cate.id }}"> {{ cate.name }}</a>
+    {% endfor %}
+</div>
+</body>
+</html>

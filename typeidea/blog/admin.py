@@ -38,6 +38,7 @@ class CategoryOwnerFilter(admin.SimpleListFilter):
 
 @admin.register(Category, site=custom_site)
 class CategoryAdmin(BaseOwnerAdmin):
+    #print('category admin')
     inlines = [PostInline, ]
     list_display = ('name', 'status', 'is_nav', 'owner', 'post_count')
     fields = ('name', 'status', 'is_nav')
@@ -114,6 +115,7 @@ class PostAdmin(BaseOwnerAdmin):
         }
         js = ('https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/js/bootstrap.bundle.js',)
     '''
+
 
 @admin.register(LogEntry, site=custom_site)
 class LogEntryAdmin(admin.ModelAdmin):

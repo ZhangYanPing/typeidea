@@ -2,6 +2,7 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 from .models import Tag, Category, Post
+from config.models import Link, SideBar
 
 
 def post_list(request, category_id=None, tag_id=None):
@@ -27,6 +28,7 @@ def post_list(request, category_id=None, tag_id=None):
         'post_list': post_list,
     }
     context.update(Category.get_navs())
+    context.update({'sidebars': SideBar.get_all()})
 
     return render(request, 'blog/list.html', context=context)
 
@@ -41,5 +43,6 @@ def post_detail(request, post_id=None):
     context = {
         'post': post,
     }
+    context.update({'sidebars': SideBar.get_all()})
     context.update(Category.get_navs())
     return render(request, 'blog/detail.html', context=context)

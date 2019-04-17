@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import Link, SideBar
-from typeidea.custome_site import custom_site
+from typeidea.custom_site import custom_site
 from typeidea.base_admin import BaseOwnerAdmin
 
 

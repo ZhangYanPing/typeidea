@@ -4,7 +4,7 @@ from .models import Post, Category, Tag
 from django.urls import reverse
 from django.utils.html import format_html
 from .adminforms import PostAdminForm
-from typeidea.custome_site import custom_site
+from typeidea.custom_site import custom_site
 from typeidea.base_admin import BaseOwnerAdmin
 from django.contrib.admin.models import LogEntry
 
